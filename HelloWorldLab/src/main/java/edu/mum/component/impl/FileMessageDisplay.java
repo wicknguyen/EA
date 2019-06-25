@@ -6,19 +6,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import edu.mum.component.MessageDisplay;
 import edu.mum.component.MessageOrigin;
 
-/*
- * Need to declare class...  
- */
-@Component(value = FileMessageDisplay.NAME)
+@Component(value = FileMessageDisplay.BEAN_NAME)
 public class FileMessageDisplay implements MessageDisplay {
 
-	public static final String NAME = "FileMessage";
+	public static final String BEAN_NAME = "FileMessage";
 
 	private MessageOrigin messageOrigin;
 

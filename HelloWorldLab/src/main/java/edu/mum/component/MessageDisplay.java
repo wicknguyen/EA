@@ -4,5 +4,5 @@ import java.io.IOException;
 
 public interface MessageDisplay {
     void display() throws IOException;
-     MessageOrigin getMessageSource();
+    MessageOrigin getMessageSource();
 }

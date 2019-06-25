@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 import edu.mum.component.MessageDisplay;
 import edu.mum.component.MessageOrigin;
 
-@Component(value = StandardOutMessageDisplay.NAME)
+@Component(value = StandardOutMessageDisplay.BEAN_NAME)
 public class StandardOutMessageDisplay implements MessageDisplay {
 
-    public static final String NAME = "StandardOutMessage";
+    public static final String BEAN_NAME = "StandardOutMessage";
 
 	@Autowired
 	private MessageOrigin messageSource;

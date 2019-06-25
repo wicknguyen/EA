@@ -12,7 +12,7 @@ public class HelloWorld {
     public static void main(String[] args) {
    	 ApplicationContext applicationContext = new AnnotationConfigApplicationContext( JavaConfiguration.class );
  
-    	MessageDisplay messageDisplay = (MessageDisplay) applicationContext.getBean(FileMessageDisplay.NAME);
+    	MessageDisplay messageDisplay = (MessageDisplay) applicationContext.getBean(FileMessageDisplay.BEAN_NAME);
           try {
 			messageDisplay.display();
 		} catch (IOException e) {
