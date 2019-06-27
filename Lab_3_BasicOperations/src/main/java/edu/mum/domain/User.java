@@ -3,7 +3,6 @@ package edu.mum.domain;
 import org.hibernate.annotations.Type;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.*;
@@ -28,11 +27,11 @@ public class User implements Serializable {
     private int rating = 0;
     @Column(name = "IS_ADMIN", length = 1)
 //    @Type(type = "true_false")
-    private boolean admin = false;
+    private boolean admin;
 
     @Version
     @Column(nullable = false)
-    private int version = 0;
+    private int version;
     @Temporal(TemporalType.DATE)
     @Column
     private Date lastLogin;

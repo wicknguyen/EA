@@ -22,12 +22,6 @@ public class UserServiceImpl implements edu.mum.service.UserService {
         userDao.save(user);
     }
 
-
-    @Override
-    public void tryMergeCapability() {
-
-    }
-
     public List<User> findAll() {
         return (List<User>) userDao.findAll();
     }

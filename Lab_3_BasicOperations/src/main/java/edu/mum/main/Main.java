@@ -49,7 +49,6 @@ public class Main {
 
         // Exercise the Merge capability
         try {
-            userService.tryMergeCapability();
             EntityManagerFactory entityManagerFactory = context.getBean("entityManagerFactory", EntityManagerFactory.class);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             entityManager.getTransaction().begin();
