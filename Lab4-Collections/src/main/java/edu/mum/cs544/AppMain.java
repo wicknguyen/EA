@@ -3,6 +3,7 @@ package edu.mum.cs544;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class AppMain {
 
@@ -32,10 +33,17 @@ public class AppMain {
         Student student1 = new Student();
         student1.setName("Nguyen");
 
-        // TODO
+        entityManager.persist(student);
+        entityManager.persist(student1);
+        school.addStudent(student);
+        school.addStudent(student1);
 
+        entityManager.persist(school);
+        entityManager.getTransaction().commit();
 
-
+        entityManager.getTransaction().begin();
+        School schoolResult = entityManager.createQuery("from School", School.class).getSingleResult();
+        System.out.println(schoolResult);
         entityManager.getTransaction().commit();
         entityManager.close();
     }

@@ -14,7 +14,6 @@ public class School {
     private String addresse;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn
     @MapKeyColumn(name = "studentId")
     private Map<Long, Student> students = new HashMap<>();
 
@@ -40,5 +39,23 @@ public class School {
 
     public void setAddresse(String addresse) {
         this.addresse = addresse;
+    }
+
+    public void addStudent(Student student) {
+        students.put(student.getId(), student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student.getId());
+    }
+
+    @Override
+    public String toString() {
+        return "School{" +
+                "id=" + id +
+                ", schoolName='" + schoolName + '\'' +
+                ", addresse='" + addresse + '\'' +
+                ", students=" + students +
+                '}';
     }
 }

@@ -9,6 +9,7 @@ import javax.persistence.Id;
 public class Student {
 
     @Id
+    @GeneratedValue
     @Column(name = "studentId")
     private Long id;
     private String name;
@@ -27,5 +28,13 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
