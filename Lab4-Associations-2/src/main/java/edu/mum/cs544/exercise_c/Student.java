@@ -33,7 +33,7 @@ public class Student {
 
     public boolean addCourse(Course course) {
         if (courses.add(course)) {
-//            course.getStudents().add(this);
+            course.getStudents().add(this);
             return true;
         }
         return false;
@@ -41,7 +41,7 @@ public class Student {
 
     public boolean removeCourse(Course course) {
         if (courses.remove(course)) {
-//            course.getStudents().remove(this);
+            course.getStudents().remove(this);
             return true;
         }
         return false;
