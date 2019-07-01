@@ -30,7 +30,8 @@ public class App {
         System.out.println("Question A:");
         List<Flight> flights = em.createQuery("select f from Flight f " +
                 "inner join Airplane a on a.id = f.airplane " +
-                "where a.capacity > 500", Flight.class).getResultList();
+                "where a.capacity > 500 and a.origin.name='USA' " +
+                "and a.destination.name <> 'USA'", Flight.class).getResultList();
         System.out.printf("%-9s%-31s%-31s\n", "Flight:", "Departs:",
                 "Arrives:");
         for (Flight flight : flights) {
