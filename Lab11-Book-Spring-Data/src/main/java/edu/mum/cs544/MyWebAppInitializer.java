@@ -1,5 +1,6 @@
 package edu.mum.cs544;
 
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
@@ -17,10 +18,12 @@ public class MyWebAppInitializer implements WebApplicationInitializer {
         // Create the Spring 'root' application context
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
         rootContext.register(Config.class);
+        container.addFilter("OpenEntityManagerInViewFilter", OpenEntityManagerInViewFilter.class)
+                .addMappingForUrlPatterns(null, false, "*");
 
         // Manage the lifecycle of the root application context
         container.addListener(new ContextLoaderListener(rootContext));
-        
+
 		ServletRegistration.Dynamic appServlet = container.addServlet("mvc",
 				new DispatcherServlet(new GenericWebApplicationContext()));
 		appServlet.setLoadOnStartup(1);

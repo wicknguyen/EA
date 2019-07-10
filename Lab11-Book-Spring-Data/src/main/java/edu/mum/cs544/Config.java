@@ -11,6 +11,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -39,9 +40,9 @@ import java.util.Properties;
 @ComponentScan("edu.mum.cs544")
 public class Config implements WebMvcConfigurer {
 
-	@Autowired
-	@Lazy
-	private EntityManagerFactory entityManagerFactory;
+//	@Autowired
+//	@Lazy
+//	private EntityManagerFactory entityManagerFactory;
 
 	@Bean
 	public ViewResolver viewResolver() {
@@ -96,10 +97,11 @@ public class Config implements WebMvcConfigurer {
 	    return transactionManager;
 	}
 
-	@Override
-	public void addInterceptors(InterceptorRegistry registry) {
-		OpenEntityManagerInViewInterceptor interceptor = new OpenEntityManagerInViewInterceptor();
-		interceptor.setEntityManagerFactory(entityManagerFactory);
-		registry.addWebRequestInterceptor(interceptor);
-	}
+//	@Override
+//	public void addInterceptors(InterceptorRegistry registry) {
+//		OpenEntityManagerInViewInterceptor interceptor = new OpenEntityManagerInViewInterceptor();
+//		interceptor.setEntityManagerFactory(entityManagerFactory);
+//		registry.addWebRequestInterceptor(interceptor);
+//	}
+
 }
